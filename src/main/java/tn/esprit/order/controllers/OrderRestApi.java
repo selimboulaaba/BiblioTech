@@ -4,13 +4,14 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.order.entities.Orders;
 import tn.esprit.order.services.IOrder;
+import tn.esprit.order.services.OrderServiceImpl;
 
 import java.util.List;
 
 @RestController
 @AllArgsConstructor
 public class OrderRestApi {
-    private IOrder iOrder;
+    private OrderServiceImpl iOrder;
     @PostMapping("/addOrder")
     public Orders addOrder(@RequestBody Orders f){
         return iOrder.addOrder(f);

@@ -17,10 +17,9 @@ public class Orders implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idOrder;
-    @ManyToMany
-    private List<User> user;
-    @ManyToOne
-    private Book book;
+    private long idUser;
+    @ElementCollection
+    private List<Long> idBooks;
     @Temporal(TemporalType.DATE)
     private Date pickupDate,returnDate;
     @Enumerated(EnumType.STRING)
