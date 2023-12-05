@@ -1,16 +1,38 @@
 version: "24.0.6"
 services:
-  bibliotech:
-    build: ../BiblioTechServer
+
+  eureka-server:
+    build:
+      context: ../BiblioTechServer
+      dockerfile: Dockerfile
+    restart: always
+    container_name: eureka-container
+    image: eureka-image
     ports:
       - "8761:8761"
-    image: "bibliotech-server"
-  review:
-    build: ../BiblioTech
-    environment:
-      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/bibliotech/
-    ports:
-      - "3000:8089"
-    image: "bibliotech-review"
-    depends_on:
+    networks:
       - bibliotech
+
+
+  review-service:
+    build:
+      context: ../BiblioTech
+      dockerfile: Dockerfile
+    container_name: review-container
+    image: review-image
+    networks:
+      - bibliotech
+    depends_on:
+      - eureka-server
+    restart: always
+    ports:
+      - "8089:8089"
+    environment:
+      - eureka.client.service-url.defaultZone=http://eureka-server:8761/eureka/
+      - eureka.instance.preferIpAddress=true
+      - eureka.instance.leaseRenewalIntervalInSeconds=10
+      - eureka.instance.leaseExpirationDurationInSeconds=30
+
+networks:
+  bibliotech:
+    name: bibliotech
