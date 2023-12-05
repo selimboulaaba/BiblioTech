@@ -1,0 +1,16 @@
+version: "24.0.6"
+services:
+  bibliotech:
+    build: ../BiblioTechServer
+    ports:
+      - "8761:8761"
+    image: "bibliotech-server"
+  review:
+    build: ../BiblioTech
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/bibliotech/
+    ports:
+      - "3000:8089"
+    image: "bibliotech-review"
+    depends_on:
+      - bibliotech
