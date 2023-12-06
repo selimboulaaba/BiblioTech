@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idBook;
+    private long idBook;
 
     private String title;
 
