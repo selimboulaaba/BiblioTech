@@ -12,4 +12,5 @@ public interface ReviewInterface {
     public Optional<Review> getReviewById(long reviwId);
     public Review saveReview(Review review);
     public void deleteReview(long reviwId);
+    public List<Review> getByBook(long idBook);
 }

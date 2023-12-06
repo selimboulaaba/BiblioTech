@@ -9,6 +9,7 @@ import tn.esprit.bibliotech.interfaces.ReviewInterface;
 import tn.esprit.bibliotech.repositories.ReplyReviewRepository;
 import tn.esprit.bibliotech.repositories.ReviewRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,5 +36,10 @@ public class ReviewService implements ReviewInterface {
     @Override
     public void deleteReview(long reviewId) {
         reviewRepository.deleteById(reviewId);
+    }
+
+    @Override
+    public List<Review> getByBook(long idBook) {
+        return reviewRepository.findByBookId(idBook);
     }
 }

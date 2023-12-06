@@ -34,8 +34,7 @@ public class ReplyReviewService implements ReplyReviewInterface {
     }
 
     @Override
-    public ReplyReview saveReplyToReply(ReplyReview replyReview, long reviewId, long replyId) {
-        replyReview.setParentReview(reviewRepository.findById(reviewId).get());
+    public ReplyReview saveReplyToReply(ReplyReview replyReview, long replyId) {
         replyReview.setParentReply(replyReviewRepository.findById(replyId).get());
         return replyReviewRepository.save(replyReview);
     }

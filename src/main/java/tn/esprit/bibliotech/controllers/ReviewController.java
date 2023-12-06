@@ -42,4 +42,9 @@ public class ReviewController {
         reviewService.deleteReview(reviewId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/book/{idBook}")
+    public List<Review> getAllReviewsByBook(@PathVariable long idBook) {
+        return reviewService.getByBook(idBook);
+    }
 }

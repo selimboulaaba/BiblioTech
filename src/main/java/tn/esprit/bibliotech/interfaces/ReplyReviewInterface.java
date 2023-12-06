@@ -10,6 +10,6 @@ public interface ReplyReviewInterface {
     public List<ReplyReview> getAllReplies();
     public Optional<ReplyReview> getReplyById(long replyId);
     public ReplyReview saveReply(ReplyReview replyReview, long reviewId);
-    public ReplyReview saveReplyToReply(ReplyReview replyReview, long reviewId, long replyId);
+    public ReplyReview saveReplyToReply(ReplyReview replyReview, long replyId);
     public void deleteReply(long replyId);
 }

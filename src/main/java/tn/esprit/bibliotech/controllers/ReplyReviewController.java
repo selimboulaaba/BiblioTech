@@ -38,7 +38,7 @@ public class ReplyReviewController {
 
     @PostMapping("/{reviewId}/{replyId}")
     public ResponseEntity<ReplyReview> saveReplytoReply(@PathVariable long reviewId, @PathVariable long replyId, @RequestBody ReplyReview replyReview) {
-        ReplyReview savedReply = replyReviewService.saveReplyToReply(replyReview, reviewId, replyId);
+        ReplyReview savedReply = replyReviewService.saveReplyToReply(replyReview, replyId);
         return new ResponseEntity<>(savedReply, HttpStatus.CREATED);
     }
 
