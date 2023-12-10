@@ -6,6 +6,7 @@ import tn.esprit.order.entities.Orders;
 import tn.esprit.order.services.IOrder;
 import tn.esprit.order.services.OrderServiceImpl;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -33,5 +34,9 @@ public class OrderRestApi {
     @DeleteMapping("/deleteOrder/{IdF}")
     public void deleteOrder(@PathVariable long IdF){
         iOrder.deleteOrder(IdF);
+    }
+    @GetMapping("/getDateFinByIdBook/{IdF}")
+    public Date getByIdBook(@PathVariable long IdF){
+        return iOrder.findByIdBook(IdF);
     }
 }

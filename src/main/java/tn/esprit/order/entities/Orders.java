@@ -18,8 +18,8 @@ public class Orders implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idOrder;
     private long idUser;
-    @ElementCollection
-    private List<Long> idBooks;
+
+    private long idBook;
     @Temporal(TemporalType.DATE)
     private Date pickupDate,returnDate;
     @Enumerated(EnumType.STRING)

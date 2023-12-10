@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import tn.esprit.order.entities.Orders;
 import tn.esprit.order.repositories.OrderRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -35,5 +36,10 @@ public class OrderServiceImpl implements IOrder{
     public void deleteOrder(long id) {
         orderRepository.deleteById(id);
 
+    }
+
+    @Override
+    public Date findByIdBook(long id) {
+        return orderRepository.findByIdBook(id);
     }
 }
