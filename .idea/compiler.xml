@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Order" />
+        <module name="BiblioTech" />
+        <module name="bookMicroService" />
+        <module name="BiblioTechServer" />
+        <module name="BiblioTechAPIGateway" />
+        <module name="Order (2)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Order (1)" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="BiblioTech" options="-parameters" />
+      <module name="BiblioTechAPIGateway" options="-parameters" />
+      <module name="BiblioTechServer" options="-parameters" />
+      <module name="Order" options="-parameters" />
+      <module name="Order (1)" options="-parameters" />
+      <module name="Order (2)" options="-parameters" />
+      <module name="bookMicroService" options="-parameters" />
+    </option>
+  </component>
+</project>
